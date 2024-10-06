@@ -12,14 +12,21 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	_view_cast.enabled = true
+	_view_cast.target_position = Vector3.FORWARD * 4
 	timer.autostart = false
 	timer.one_shot = true
 	
 	add_child(timer)
 
+var can_analyse: bool = false
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			can_analyse = true
+		else:
+			can_analyse = false
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -53,9 +60,12 @@ func _physics_process(delta):
 
 		# Get the global position of the player
 	var player_position: Vector3 = global_transform.origin
-	_view_cast.look_at(direction * 100)
+	var dir = velocity
+	dir.y = 0
+	dir = dir.normalized()
+	#_view_cast.look_at(dir * 100, Vector3.UP)
 	_view_cast.force_raycast_update()
-	if _view_cast.is_colliding():
+	if can_analyse and _view_cast.is_colliding():
 		var collider = _view_cast.get_collider()
 		var groups = collider.get_groups()
 		if not analysing and groups.has("creature") and not groups.has("Found"):
