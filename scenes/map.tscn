@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=4 uid="uid://xxerivoendjm"]
+[gd_scene load_steps=15 format=4 uid="uid://xxerivoendjm"]
 
+[ext_resource type="Script" path="res://scenes/Game.gd" id="1_e60d1"]
 [ext_resource type="PackedScene" uid="uid://bd4ba6mn05c1c" path="res://scenes/creature.tscn" id="1_msdxi"]
 [ext_resource type="PackedScene" uid="uid://cvpxj2ovym150" path="res://assets/trees/tree_pineDefaultA.glb" id="2_l2f5i"]
 [ext_resource type="Script" path="res://scripts/character_body_3d.gd" id="3_e1x8k"]
@@ -85,6 +86,12 @@ buffer = PackedFloat32Array(-9.64116, 0, 0, 45.2393, 0, 9.64116, 0, 0, 0, 0, -9.
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qp3bn"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_e60d1")
+
+[node name="Creatures" type="Node" parent="."]
+
+[node name="Creature" parent="Creatures" instance=ExtResource("1_msdxi")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.10996, 0.458635, -4.76762)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
@@ -98,9 +105,6 @@ mesh = SubResource("PlaneMesh_dgeo6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.940508, 0.339772, 0, -0.339772, 0.940508, 0, 2.46719, 0)
-
-[node name="Creature" parent="." instance=ExtResource("1_msdxi")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.10996, 0.458635, -4.76762)
 
 [node name="Trees" type="Node" parent="."]
 
@@ -145,6 +149,28 @@ offset_bottom = 23.0
 text = "Creatures found : 0"
 horizontal_alignment = 1
 
+[node name="VictoryScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1112.0
+offset_bottom = -608.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.000399189
+
+[node name="CenterContainer" type="CenterContainer" parent="VictoryScreen"]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="VictoryScreen/CenterContainer"]
+layout_mode = 2
+text = "You found all the creatures!"
+
 [connection signal="creature_analised" from="Player" to="CreatureCounter" method="_on_player_creature_analised"]
+[connection signal="victory" from="CreatureCounter" to="." method="_on_creature_counter_victory"]
 
 [editable path="Trees/tree_pineDefaultA2"]

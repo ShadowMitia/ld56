@@ -21,6 +21,7 @@ enabled=PackedStringArray()
 [global_group]
 
 Found=""
+creature=""
 
 [input]
 
