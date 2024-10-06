@@ -7,10 +7,15 @@ const JUMP_VELOCITY = 4.5
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var _camera_3d: Camera3D = get_node("Camera3D")
+@onready var _view_cast: RayCast3D = get_node("RayCast3D")
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	_view_cast.enabled = true
+	timer.autostart = false
+	timer.one_shot = true
+	
+	add_child(timer)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -23,6 +28,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			_camera_3d.rotate_x(-event.relative.y * 0.01)
 			_camera_3d.rotation.x = clamp(_camera_3d.rotation.x, deg_to_rad(-45), deg_to_rad(70))
 
+@onready var creature_counter = %CreatureCounter
+
 func _physics_process(delta):
 # Add the gravity.
 	if not is_on_floor():
@@ -33,7 +40,7 @@ func _physics_process(delta):
 	#	velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -44,4 +51,35 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	
+		# Get the global position of the player
+	var player_position: Vector3 = global_transform.origin
+	_view_cast.look_at(direction * 100)
+	_view_cast.force_raycast_update()
+	if _view_cast.is_colliding():
+		var collider = _view_cast.get_collider()
+		var groups = collider.get_groups()
+		if not analysing and groups.has("creature") and not groups.has("Found"):
+			print("Start analysing")
+			analysing = true
+			timer.timeout.connect(toto.bind(collider))
+
+			timer.start(2.0)
+			print(timer.is_stopped())
+			print("Let's go")
+	else:
+		if analysing:
+			if not timer.is_stopped():
+				print("Stopping analysis")
+				analysing = false
+				timer.stop()
+				timer.timeout.disconnect(toto)
+
+@onready var timer: Timer = Timer.new()
+
+var analysing: bool = false
+
+signal creature_analised
+
+func toto(collider: Object) -> void:
+	emit_signal(&"creature_analised"); 
+	collider.add_to_group("Found")

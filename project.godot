@@ -16,7 +16,11 @@ config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/character_camera_3d/plugin.cfg")
+enabled=PackedStringArray()
+
+[global_group]
+
+Found=""
 
 [input]
 
