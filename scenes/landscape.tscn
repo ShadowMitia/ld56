@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c04fnets05ras"]
+
+[ext_resource type="PackedScene" uid="uid://cjf3tt3bt2kca" path="res://assets/dimitri.blend" id="1_nv5ih"]
+
+[node name="Landscape" instance=ExtResource("1_nv5ih")]

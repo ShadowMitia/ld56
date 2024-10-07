@@ -34,6 +34,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			rotate_y(-event.relative.x * 0.01)
 			_camera_3d.rotate_x(-event.relative.y * 0.01)
 			_camera_3d.rotation.x = clamp(_camera_3d.rotation.x, deg_to_rad(-45), deg_to_rad(70))
+			_view_cast.rotate_x(-event.relative.y * 0.01)
+			_view_cast.rotation.x = clamp(_camera_3d.rotation.x, deg_to_rad(-45), deg_to_rad(70))
 
 @onready var creature_counter = %CreatureCounter
 
@@ -91,5 +93,6 @@ var analysing: bool = false
 signal creature_analised
 
 func toto(collider: Object) -> void:
+	print("Done")
 	emit_signal(&"creature_analised"); 
 	collider.add_to_group("Found")

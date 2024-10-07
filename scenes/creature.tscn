@@ -1,17 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://bd4ba6mn05c1c"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_tlki5"]
+[ext_resource type="PackedScene" uid="uid://ccetetggx3d4s" path="res://assets/creatures.blend" id="1_mwtwa"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iurs7"]
 
 [node name="Creature" type="Node3D" groups=["creature"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 metadata/is_creature = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("SphereMesh_tlki5")
+[node name="creatures" parent="." instance=ExtResource("1_mwtwa")]
+transform = Transform3D(-1.31275e-08, 6.49747e-13, -0.3, 0.0138913, 0.299678, -6.07212e-10, 0.299678, -0.0138913, -1.31134e-08, 0, 0, 0)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["creature"]]
+[node name="RigidBody3D" type="StaticBody3D" parent="." groups=["creature"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
