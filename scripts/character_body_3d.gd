@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
-const SPEED = 10.0
+const SPEED = 20.0
 const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
-var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")*4
 
 @onready var _camera_3d: Camera3D = get_node("Camera3D")
 @onready var _view_cast: RayCast3D = get_node("RayCast3D")
@@ -38,6 +38,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_view_cast.rotation.x = clamp(_camera_3d.rotation.x, deg_to_rad(-45), deg_to_rad(70))
 
 @onready var creature_counter = %CreatureCounter
+@onready var target = %Target
 
 func _physics_process(delta):
 # Add the gravity.
@@ -67,11 +68,16 @@ func _physics_process(delta):
 	dir = dir.normalized()
 	#_view_cast.look_at(dir * 100, Vector3.UP)
 	_view_cast.force_raycast_update()
+	if can_analyse:
+		target.visible = true
+	else:
+		target.visible = false
 	if can_analyse and _view_cast.is_colliding():
 		var collider = _view_cast.get_collider()
 		var groups = collider.get_groups()
 		if not analysing and groups.has("creature") and not groups.has("Found"):
 			print("Start analysing")
+
 			analysing = true
 			timer.timeout.connect(toto.bind(collider))
 
@@ -82,9 +88,10 @@ func _physics_process(delta):
 		if analysing:
 			if not timer.is_stopped():
 				print("Stopping analysis")
-				analysing = false
 				timer.stop()
-				timer.timeout.disconnect(toto)
+		timer.timeout.disconnect(toto)
+		analysing = false
+
 
 @onready var timer: Timer = Timer.new()
 
@@ -96,3 +103,4 @@ func toto(collider: Object) -> void:
 	print("Done")
 	emit_signal(&"creature_analised"); 
 	collider.add_to_group("Found")
+	collider.get_owner().visible = false

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_e60d1"]
 [ext_resource type="PackedScene" uid="uid://bd4ba6mn05c1c" path="res://scenes/creature.tscn" id="1_msdxi"]
-[ext_resource type="PackedScene" uid="uid://cvpxj2ovym150" path="res://assets/trees/tree_pineDefaultA.glb" id="2_l2f5i"]
+[ext_resource type="PackedScene" path="res://assets/trees/tree_pineDefaultA.glb" id="2_l2f5i"]
 [ext_resource type="PackedScene" uid="uid://2joentv7ph02" path="res://scenes/player.tscn" id="4_juc37"]
 [ext_resource type="PackedScene" uid="uid://bbo1u4i1a3vby" path="res://scenes/creature_counter.tscn" id="5_v5bp2"]
 

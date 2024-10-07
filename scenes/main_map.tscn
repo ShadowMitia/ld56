@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://ryqq1oxo81x4"]
+[gd_scene load_steps=22 format=4 uid="uid://ryqq1oxo81x4"]
 
 [ext_resource type="PackedScene" uid="uid://dgpdd1xmofjxt" path="res://assets/ld56.blend" id="1_5u75p"]
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_jitrg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bd4ba6mn05c1c" path="res://scenes/creature.tscn" id="5_vaamy"]
 [ext_resource type="PackedScene" uid="uid://bbo1u4i1a3vby" path="res://scenes/creature_counter.tscn" id="6_4vy5g"]
 [ext_resource type="Texture2D" uid="uid://d4m532gwtl4l8" path="res://assets/ring.svg" id="6_a66dy"]
+[ext_resource type="AudioStream" uid="uid://bw2t0lhs0iaxl" path="res://assets/The Forest and the Trees.mp3" id="9_q7hoy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p512r"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -152,6 +153,177 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.589414, 0, -1.38282)
 [node name="Plane" parent="ld56" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.671196, 0, 0)
 
+[node name="stone_largeA" parent="ld56" index="2"]
+visible = false
+
+[node name="stone_largeB" parent="ld56" index="3"]
+visible = false
+
+[node name="stone_largeC" parent="ld56" index="4"]
+visible = false
+
+[node name="stone_largeD" parent="ld56" index="5"]
+visible = false
+
+[node name="stone_largeE" parent="ld56" index="6"]
+visible = false
+
+[node name="stone_largeF" parent="ld56" index="7"]
+visible = false
+
+[node name="stone_smallA" parent="ld56" index="8"]
+visible = false
+
+[node name="stone_smallB" parent="ld56" index="9"]
+visible = false
+
+[node name="stone_smallC" parent="ld56" index="10"]
+visible = false
+
+[node name="stone_smallD" parent="ld56" index="11"]
+visible = false
+
+[node name="stone_smallE" parent="ld56" index="12"]
+visible = false
+
+[node name="stone_smallF" parent="ld56" index="13"]
+visible = false
+
+[node name="stone_smallFlatA" parent="ld56" index="14"]
+visible = false
+
+[node name="stone_smallFlatB" parent="ld56" index="15"]
+visible = false
+
+[node name="stone_smallFlatC" parent="ld56" index="16"]
+visible = false
+
+[node name="stone_smallG" parent="ld56" index="17"]
+visible = false
+
+[node name="stone_smallH" parent="ld56" index="18"]
+visible = false
+
+[node name="stone_smallI" parent="ld56" index="19"]
+visible = false
+
+[node name="stone_smallTopA" parent="ld56" index="20"]
+visible = false
+
+[node name="stone_smallTopB" parent="ld56" index="21"]
+visible = false
+
+[node name="stone_tallA" parent="ld56" index="22"]
+visible = false
+
+[node name="stone_tallB" parent="ld56" index="23"]
+visible = false
+
+[node name="stone_tallC" parent="ld56" index="24"]
+visible = false
+
+[node name="stone_tallD" parent="ld56" index="25"]
+visible = false
+
+[node name="stone_tallE" parent="ld56" index="26"]
+visible = false
+
+[node name="stone_tallF" parent="ld56" index="27"]
+visible = false
+
+[node name="stone_tallG" parent="ld56" index="28"]
+visible = false
+
+[node name="stone_tallH" parent="ld56" index="29"]
+visible = false
+
+[node name="stone_tallI" parent="ld56" index="30"]
+visible = false
+
+[node name="stone_tallJ" parent="ld56" index="31"]
+visible = false
+
+[node name="tree_pineDefaultA" parent="ld56" index="32"]
+visible = false
+
+[node name="tree_pineDefaultB" parent="ld56" index="33"]
+visible = false
+
+[node name="tree_pineGroundA" parent="ld56" index="34"]
+visible = false
+
+[node name="tree_pineGroundB" parent="ld56" index="35"]
+visible = false
+
+[node name="tree_pineRoundA" parent="ld56" index="36"]
+visible = false
+
+[node name="tree_pineRoundB" parent="ld56" index="37"]
+visible = false
+
+[node name="tree_pineRoundC" parent="ld56" index="38"]
+visible = false
+
+[node name="tree_pineRoundD" parent="ld56" index="39"]
+visible = false
+
+[node name="tree_pineRoundE" parent="ld56" index="40"]
+visible = false
+
+[node name="tree_pineRoundF" parent="ld56" index="41"]
+visible = false
+
+[node name="tree_pineSmallA" parent="ld56" index="42"]
+visible = false
+
+[node name="tree_pineSmallB" parent="ld56" index="43"]
+visible = false
+
+[node name="tree_pineSmallC" parent="ld56" index="44"]
+visible = false
+
+[node name="tree_pineSmallD" parent="ld56" index="45"]
+visible = false
+
+[node name="tree_pineTallA" parent="ld56" index="46"]
+visible = false
+
+[node name="tree_pineTallA_detailed" parent="ld56" index="47"]
+visible = false
+
+[node name="tree_pineTallB" parent="ld56" index="48"]
+visible = false
+
+[node name="tree_pineTallB_detailed" parent="ld56" index="49"]
+visible = false
+
+[node name="tree_pineTallC" parent="ld56" index="50"]
+visible = false
+
+[node name="tree_pineTallC_detailed" parent="ld56" index="51"]
+visible = false
+
+[node name="tree_pineTallD" parent="ld56" index="52"]
+visible = false
+
+[node name="tree_pineTallD_detailed" parent="ld56" index="53"]
+visible = false
+
+[node name="grass" parent="ld56" index="57"]
+visible = false
+
+[node name="grass_large" parent="ld56" index="58"]
+visible = false
+
+[node name="grass_leafs" parent="ld56" index="59"]
+visible = false
+
+[node name="grass_leafsLarge" parent="ld56" index="60"]
+visible = false
+
+[node name="platform_grass" parent="ld56" index="62"]
+visible = false
+
 [node name="Camera3D" type="Camera3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -175,7 +347,8 @@ visible = false
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_oip3g")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -9.1968, 0.250461, -4.26296)
+transform = Transform3D(1.02016, 0.0400786, -1.71979, -3.23445e-10, 1.99946, 0.0465961, 1.72026, -0.0237676, 1.01988, -30.3031, 0.554979, 13.7109)
+metadata/_edit_group_ = true
 
 [node name="Camera3D" parent="Player" index="2"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0.5)
@@ -183,16 +356,48 @@ current = true
 
 [node name="RayCast3D" parent="Player" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, 10)
 
-[node name="Sprite3D" type="Sprite3D" parent="Player/RayCast3D" index="0"]
+[node name="Target" type="Sprite3D" parent="Player/RayCast3D" index="0"]
+unique_name_in_owner = true
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, -1.05207)
 no_depth_test = true
 texture = ExtResource("6_a66dy")
 
 [node name="Creatures" type="Node" parent="."]
 
-[node name="Creature" parent="." instance=ExtResource("5_vaamy")]
+[node name="Creature" parent="Creatures" instance=ExtResource("5_vaamy")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.68218, 3.69948, 11.5261)
+
+[node name="Creature2" parent="Creatures" instance=ExtResource("5_vaamy")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.01447, -0.692562, -16.2668)
+
+[node name="Creature3" parent="Creatures" instance=ExtResource("5_vaamy")]
+transform = Transform3D(-0.908151, 0, 0.418644, 0, 1, 0, -0.418644, 0, -0.908151, 98.0524, 47.9654, -55.9453)
+
+[node name="Creature4" parent="Creatures" instance=ExtResource("5_vaamy")]
+transform = Transform3D(0.976777, 0, -1.13838, 0, 1.5, 0, 1.13838, 0, 0.976777, -229.602, 43.7558, -245.835)
+
+[node name="Creature5" parent="Creatures" instance=ExtResource("5_vaamy")]
+transform = Transform3D(-1.34328, 0, -0.667539, 0, 1.5, 0, 0.667539, 0, -1.34328, 214.051, 52.4704, -147.722)
+
+[node name="Creature6" parent="Creatures" instance=ExtResource("5_vaamy")]
+transform = Transform3D(1.17086, 0, -0.937598, 0, 1.5, 0, 0.937598, 0, 1.17086, 214.051, 52.4704, -150.711)
+
+[node name="Creature7" parent="Creatures" instance=ExtResource("5_vaamy")]
+transform = Transform3D(-0.12549, 0, 1.49474, 0, 1.5, 0, -1.49474, 0, -0.12549, 210.658, 52.4704, -149.171)
+
+[node name="Creature8" parent="Creatures" instance=ExtResource("5_vaamy")]
+transform = Transform3D(-1.11731, 0, -1.00081, 0, 1.5, 0, 1.00081, 0, -1.11731, 31.9921, 4.46336, -297.517)
+
+[node name="Creature9" parent="Creatures" instance=ExtResource("5_vaamy")]
+transform = Transform3D(-0.0989931, 0, -1.49673, 0, 1.5, 0, 1.49673, 0, -0.0989931, -171.256, 3.7926, 38.1988)
+
+[node name="Creature10" parent="Creatures" instance=ExtResource("5_vaamy")]
+transform = Transform3D(-0.0989931, 0, -1.49673, 0, 1.5, 0, 1.49673, 0, -0.0989931, -171.256, 5.24498, 38.1988)
+
+[node name="Creature11" parent="Creatures" instance=ExtResource("5_vaamy")]
+transform = Transform3D(-0.0989931, 0, -1.49673, 0, 1.5, 0, 1.49673, 0, -0.0989931, -171.256, 6.64604, 38.1988)
 
 [node name="CreatureCounter" parent="." instance=ExtResource("6_4vy5g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57325, 0.670683, 14.8856)
@@ -229,7 +434,12 @@ layout_mode = 0
 offset_top = 620.0
 offset_right = 153.0
 offset_bottom = 643.0
-text = "Left-click to analyse"
+text = "Left-click and hold to analyse"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_q7hoy")
+autoplay = true
+parameters/looping = true
 
 [connection signal="creature_analised" from="Player" to="CreatureCounter" method="_on_player_creature_analised"]
 [connection signal="victory" from="CreatureCounter" to="." method="_on_creature_counter_victory"]
