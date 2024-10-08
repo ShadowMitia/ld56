@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbo1u4i1a3vby"]
+[gd_scene load_steps=3 format=3 uid="uid://bbo1u4i1a3vby"]
 
 [ext_resource type="Script" path="res://scripts/creature_counter.gd" id="1_dtubv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1lfx4"]
+outline_color = Color(0, 0, 0, 1)
 
 [node name="CreatureCounter" type="Node3D"]
 script = ExtResource("1_dtubv")
@@ -12,8 +15,10 @@ offset_right = 287.0
 offset_bottom = 89.0
 
 [node name="Label" type="Label" parent="Container"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Creatures found : 0"
+label_settings = SubResource("LabelSettings_1lfx4")
 horizontal_alignment = 1
